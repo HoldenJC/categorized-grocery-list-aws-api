@@ -11,7 +11,13 @@ A website created with JS and HTML that allows the user to (APP DESCRIPTION HERE
 ### Specs
 | Spec | Input | Output |
 | :-------------     | :------------- | :------------- |
-| **Program is expected to perform some action** | input | output |
+| **Allows user to enter grocery item** | input | output |
+| **Allows user to enter a categorized grocery item** | input | output |
+| **Allows user to enter modify specific grocery item name or category** | input | output |
+| **Allows user to delete specific grocery item** | input | output |
+| **Allows user to clear all grocery items** | input | output |
+| **Allows user to save grocery list to AWS API** | input | output |
+| **Allows user to retrieve grocery list from AWS API** | input | output |
 
 ## Setup/Installation Requirements
 
