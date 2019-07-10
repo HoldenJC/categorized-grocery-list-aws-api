@@ -33,7 +33,7 @@ const groceryItemAppender = num => {
   $(`#m${num}`).click(function(){
     console.log(groceryList[num]);
     groceryList[num].name = $(`#i${num}`).val()
-    $(`#${num}`).html($(`#i${num}`).val());
+    $(`#${num}`).html(`${$(`#i${num}`).val()}`);
     localStorage.setItem('items', JSON.stringify(groceryList));
     console.log(groceryList);
   });
@@ -70,9 +70,7 @@ localData.forEach(item => {
 
 clearAll.addEventListener('click', function() {
   localStorage.clear();
-  while (ul.firstChild) {
-    ul.removeChild(ul.firstChild);
-  }
+  $("#groceryList").empty();
 });
 
 $(document).ready(function() {
