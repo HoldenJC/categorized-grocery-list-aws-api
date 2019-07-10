@@ -99,6 +99,7 @@ $(document).ready(function() {
   })
 });
 
+
 //get / creates local if not get
 //let groceryList = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
 
