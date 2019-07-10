@@ -18,22 +18,24 @@ console.log(groceryList);
 console.log(idCount);
 console.log(localData);
 
-const groceryItemAppender = text => {
-  $("#groceryList").append(`<p id="${idCount}"></p>`)
-  $(`#${idCount}`).html(`${text} <button id="b${idCount}">Edit</button>`);
 
-  $(`#b${idCount}`).click(function(){
-    $(this).after(`<input id="i${idCount}"><button id="m${idCount}">Confirm</button>`);
+const groceryItemAppender = num => {
+  $("#groceryList").append(`<p id="${num}"></p>`)
+  $(`#${num}`).html(`${groceryList[num].name} <button id="b${num}">Edit</button><button id="m${num}">Confirm</button>`);
+  $(`#m${num}`).hide();
+
+  $(`#b${num}`).click(function(){
+    $(this).after(`<input id="i${num}">`);
+    $(`#m${num}`).show();
     $(this).hide();
+  });
 
-    $(`#m${idCount}`).click(function(){
-      
-      console.log(groceryList[idCount-1]);
-      groceryList[idCount-1].name = $(`#i${idCount}`).val()
-      $(`#${idCount-1}`).html($(`#i${idCount}`).val());
-      localStorage.setItem('items', JSON.stringify(groceryList));
-    });
-
+  $(`#m${num}`).click(function(){
+    console.log(groceryList[num]);
+    groceryList[num].name = $(`#i${num}`).val()
+    $(`#${num}`).html($(`#i${num}`).val());
+    localStorage.setItem('items', JSON.stringify(groceryList));
+    console.log(groceryList);
   });
 };
 
@@ -45,7 +47,7 @@ form.addEventListener('submit', function(event) {
 
   console.log(groceryList);
 
-  groceryItemAppender(`${input.value}`);
+  groceryItemAppender(idCount);
   idCount++;
   localStorage.setItem('id', JSON.stringify(idCount));
   input.value = '';
