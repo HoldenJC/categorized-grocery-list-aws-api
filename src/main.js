@@ -2,15 +2,9 @@ import $ from 'jquery';
 import './styles.css';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import { CLASSNAME } from './backend-code';
 
-import { getUserAWS, addUserAWS } from './backend-code';
+import { getUsersAWS, addUserAWS, deleteUserAWS } from './backend-code';
 
-let userName = "Bob";
-let groceryList = [{"id":"0","name":"tomato","category":"produce"},{"id":"1","name":"plate","category":"produce"},{"id":"2","name":"toast","category":"produce"}];
-
-getUserAWS();
-addUserAWS(userName, groceryList);
 
 // Back end -----------------------
 class FoodItem{
@@ -23,13 +17,13 @@ class FoodItem{
 
 // let groceryList = [];
 
-let broc = new FoodItem("brocolli", "produce", "001");
-let toma = new FoodItem("tomato", "produce", "002");
-let legOfAnimal = new FoodItem("chickenLeg", "proteins", "003");
-
-groceryList.push(broc);
-groceryList.push(toma);
-groceryList.push(legOfAnimal);
+// let broc = new FoodItem("brocolli", "produce", "001");
+// let toma = new FoodItem("tomato", "produce", "002");
+// let legOfAnimal = new FoodItem("chickenLeg", "proteins", "003");
+//
+// groceryList.push(broc);
+// groceryList.push(toma);
+// groceryList.push(legOfAnimal);
 
 updateDisplay(groceryList);
 // ---------------------------------
