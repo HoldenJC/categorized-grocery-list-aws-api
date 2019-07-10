@@ -1,0 +1,36 @@
+button {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+.jumbotron {
+  text-align: center;
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+}
+
+#groceryList, form, #clearList {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#addItem {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+}
+
+hr {
+  width: 85%;
+}
+
+#groceryList > ul {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  right: 15px;
+  
+}

@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const form = document.querySelector('form');
 const ul = document.querySelector('ul');
-const button = document.querySelector('button');
+const clearAll = document.getElementById('clearList');
 const input = document.getElementById('addItem');
 let groceryList = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
 
@@ -32,7 +32,7 @@ localData.forEach(item => {
   groceryItemAppender(item);
 });
 
-document.getElementById('clearList').addEventListener('click', function() {
+clearAll.addEventListener('click', function() {
   localStorage.clear();
   while (ul.firstChild) {
     ul.removeChild(ul.firstChild);
