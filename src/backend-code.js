@@ -38,7 +38,6 @@ export function strikeItem(id){
 }
 
 export function deleteItem(id){
-  console.log("BACK END DELETE: " + id);
   groceryList[id].name = '';
   localStorage.setItem('items', JSON.stringify(groceryList));
 }
@@ -47,8 +46,3 @@ export function clearList(){
   localStorage.clear();
   initializeBackEnd();
 }
-
-
-//import all functions
-//rewrite first thing to initalze all that stfuf
-//
