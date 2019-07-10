@@ -9,7 +9,7 @@ button {
   padding-bottom: 15px !important;
 }
 
-#groceryList, form, #clearList, .header {
+#groceryList, form, #clearList, #downloadList, #uploadList, .header {
   text-align: center;
   display: block;
   margin-left: auto;
