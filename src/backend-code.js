@@ -5,7 +5,6 @@ let groceryList = localStorage.getItem('items') ? JSON.parse(localStorage.getIte
 let idLocal = localStorage.getItem('id') ? JSON.parse(localStorage.getItem('id')) : 0;
 let idCount = parseInt(idLocal);
 
-
 export getGroceryList(){
   return groceryList;
 }
