@@ -32,5 +32,13 @@ hr {
   position: relative;
   text-align: left;
   right: 15px;
-  
+
+}
+
+.crossed{
+  text-decoration: line-through;
+}
+
+.emoji:hover{
+  cursor: pointer;
 }
