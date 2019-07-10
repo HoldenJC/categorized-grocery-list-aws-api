@@ -4,9 +4,13 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import { CLASSNAME } from './backend-code';
 
-import { getUserAWS } from './backend-code';
+import { getUserAWS, addUserAWS } from './backend-code';
+
+let userName = "Bob";
+let groceryList = [{"id":"0","name":"tomato","category":"produce"},{"id":"1","name":"plate","category":"produce"},{"id":"2","name":"toast","category":"produce"}];
 
 getUserAWS();
+addUserAWS(groceryList, userName);
 
 // Back end -----------------------
 class FoodItem{

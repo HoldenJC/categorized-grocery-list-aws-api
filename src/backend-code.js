@@ -49,17 +49,15 @@ export function getUserAWS() {
     });
 }
 
-export function addUserAWS(groceryList, name) {
-  
+export function addUserAWS(groceryList, userName) {
       // Adds new entry to database
-      try {
-        const params = {
-          "userName": userName
-        }
-        axios.post(`https://r11ze6nefi.execute-api.us-west-2.amazonaws.com/test/groceryusers/${userName}`, params );
-      } catch (err) {
-        $(".output").append(`An error occured: ${err}`);
+    try {
+      const params = {
+        "userName": userName,
+        "groceryList": groceryList
       }
-
-
+      axios.post(`https://r11ze6nefi.execute-api.us-west-2.amazonaws.com/test/groceryusers/${userName}`, params );
+    } catch (err) {
+      $(".output").append(`An error occured: ${err}`);
+    }
 }
