@@ -1,12 +1,10 @@
 import $ from 'jquery';
 
-let strike;
 let groceryList;
 let idLocal;
 let idCount;
 
 export function initializeBackEnd(){
-   strike = false;
    groceryList = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
    idLocal = localStorage.getItem('id') ? JSON.parse(localStorage.getItem('id')) : 0;
    idCount = parseInt(idLocal);
@@ -17,14 +15,16 @@ export function getGroceryList(){
 }
 
 export function addItem(name, category){
-  groceryList.push({name:`${name}`,id:`${idCount}`,category:`${category}`,strikethrough:`${strike}`});
+  groceryList.push({name:`${name}`,id:`${idCount}`,category:`${category}`,strikethrough:false});
   localStorage.setItem('items', JSON.stringify(groceryList));
   idCount++;
 }
 
 export function editItem(name, id, category){
   groceryList[id].name = name;
-  groceryList[id].category = category;
+  if (category){
+    groceryList[id].category = category;
+  }
   localStorage.setItem('items', JSON.stringify(groceryList));
 }
 
