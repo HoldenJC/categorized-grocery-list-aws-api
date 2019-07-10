@@ -12,6 +12,18 @@ class FoodItem{
     this.id = id;
   }
 }
+
+let groceryList = [];
+
+let broc = new FoodItem("brocolli", "produce", "001");
+let toma = new FoodItem("tomato", "produce", "002");
+let legOfAnimal = new FoodItem("chickenLeg", "proteins", "003");
+
+groceryList.push(broc);
+groceryList.push(toma);
+groceryList.push(legOfAnimal);
+
+updateDisplay(groceryList);
 // ---------------------------------
 
 const attachSubmitHandler = function (category) {
@@ -27,45 +39,44 @@ const attachSubmitHandler = function (category) {
   });
 }
 
-$(document).ready(function() {
-  attachSubmitHandler("produce");
-  attachSubmitHandler("proteins");
-  attachSubmitHandler("other-foods");
-  attachSubmitHandler("non-foods");
-});
-
 function emptyDisplay(){
-  $("#produceList").text("");
-  $("#proteinsList").text("");
-  $("#other-foodsList").text("");
-  $("#non-foodsList").text("");
+  $("#produceList").empty();
+  $("#proteinsList").empty();
+  $("#other-foodsList").empty();
+  $("#non-foodsList").empty();
 }
 
 function updateDisplay(grocList){
   emptyDisplay();
   grocList.forEach(function(groceryItem){
-    $("#" + groceryItem.category + "List").append(`<li id="${groceryItem.id}">${groceryItem.itemName}</li>`);
+    $("#" + groceryItem.category + "List").append(`<li><span id="${groceryItem.id}">${groceryItem.itemName}</span><span id="edit${groceryItem.id}"> &#128396;</span></li>`);
     $("#" + groceryItem.id).click(function(){
       //deleteItem(groceryItem.id)
+      console.log("deleteItem(groceryItem.id)" + groceryItem.id);
+      updateDisplay(grocList);
+    });
+    $("#edit" + groceryItem.id).click(function(){
+
+      //editItem(groceryItem.id)
       console.log("deleteItem(groceryItem.id)" + groceryItem.id);
       updateDisplay(grocList);
     });
   });
 }
 
-// Back end code -------------------
 
-let groceryList = [];
 
-let broc = new FoodItem("brocolli", "produce", "001");
-let toma = new FoodItem("tomato", "produce", "002");
-let legOfAnimal = new FoodItem("chickenLeg", "proteins", "003");
+$(document).ready(function() {
+  attachSubmitHandler("produce");
+  attachSubmitHandler("proteins");
+  attachSubmitHandler("other-foods");
+  attachSubmitHandler("non-foods");
 
-groceryList.push(broc);
-groceryList.push(toma);
-groceryList.push(legOfAnimal);
-
-updateDisplay(groceryList);
+  $('#clearList').click(function() {
+    //clearList();
+    //updateDisplay(groceryList);
+  })
+});
 
 //get / creates local if not get
 //let groceryList = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
