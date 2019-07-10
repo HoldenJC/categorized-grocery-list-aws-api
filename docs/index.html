@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Grocery List Using Local Storage</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="display-4">Grocery List</h1>
+      <p class="lead">Using Device Local Storage</p>
+    </div>
+
+    <form>
+        <input id="addItem" class="form-control" type="text" placeholder="new grocery list item here" required>
+        <button class="btn btn-primary" type="submit">Add Item</button>
+    </form>
+
+    <hr>
+
+    <div id="groceryList">
+    <h2>General Items:</h2>
+    <ul></ul>
+    </div>
+
+    <button id="clearList" class="btn btn-warning">Clear List</button>
+  </div>
+<script type="text/javascript" src="bundle.js"></script></body>
+</html>
+
