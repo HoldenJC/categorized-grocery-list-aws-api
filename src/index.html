@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HTML Title Here</title>
+  <title>Test Grocery List Using Local Storage</title>
 </head>
 
 <body>
- <div id="test">TEST</div>
-</body>
+  <div class="container">
+    <h1>Local Storage Grocery List</h1>
+    <form>
+        <input id="addItem" class="form-control" type="text" placeholder="new grocery list item here" required>
+        <button class="btn btn-primary" type="submit">Add Item</button>
+    </form>
 
+    <h2>General Items:</h2>
+    <ul></ul>
+
+    <button id="clearList" class="btn btn-warning">Clear List</button>
+  </div>
+</body>
 </html>
+
