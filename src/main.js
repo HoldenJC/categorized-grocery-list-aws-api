@@ -2,44 +2,37 @@ import $ from 'jquery';
 import './styles.css';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+// import { CLASSNAME } from './backend-code';
 
-const form = document.querySelector('form');
-const ul = document.querySelector('ul');
-const clearAll = document.getElementById('clearList');
-const input = document.getElementById('addItem');
-let groceryList = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
-
-localStorage.setItem('items', JSON.stringify(groceryList));
-const localData = JSON.parse(localStorage.getItem('items'));
-
-const groceryItemAppender = text => {
-  const li = document.createElement('li');
-  li.textContent = text;
-  ul.appendChild(li);
-};
-
-form.addEventListener('submit', function(event) {
-  event.preventDefault();
-
-  groceryList.push(input.value);
-  localStorage.setItem('items', JSON.stringify(groceryList));
-
-  groceryItemAppender(input.value);
-  input.value = '';
-});
-
-localData.forEach(item => {
-  groceryItemAppender(item);
-});
-
-clearAll.addEventListener('click', function() {
-  localStorage.clear();
-  while (ul.firstChild) {
-    ul.removeChild(ul.firstChild);
-  }
-});
+const attachSubmitHandler = function (category) {
+  $('#' + category).click(function(){
+    $('form').submit(function(event) {
+      event.preventDefault();
+    });
+    
+    let newItem = $('#inputItemName').val();
+    console.log(newItem + " " + category);
+    // addItem(newItem, category);
+    $('form')[0].reset();
+  });
+}
 
 $(document).ready(function() {
- 
+  attachSubmitHandler("produce");
+  attachSubmitHandler("proteins");
+  attachSubmitHandler("other-foods");
+  attachSubmitHandler("non-foods");
 });
 
+//get / creates local if not get
+//let groceryList = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+
+//set
+//localStorage.setItem('items', JSON.stringify(groceryList));
+
+//localStorage.clear();
+
+//add()
+//modify()
+//delete()
+//clear
