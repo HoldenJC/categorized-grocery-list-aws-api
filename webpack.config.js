@@ -18,7 +18,7 @@ module.exports = {
     new UglifyJsPlugin({ sourceMap: true }),
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      title: 'Test Grocery List Using Local Storage',
+      title: 'Categorized Grocery List',
       template: './src/index.html',
       inject: 'body'
     }),
