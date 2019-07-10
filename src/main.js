@@ -21,7 +21,7 @@ console.log(localData);
 
 const groceryItemAppender = num => {
   $("#groceryList").append(`<p id="${num}"></p>`)
-  $(`#${num}`).html(`${groceryList[num].name} <button id="b${num}">Edit</button><button id="m${num}">Confirm</button>`);
+  $(`#${num}`).html(`${groceryList[num].name} <button id="b${num}" class="btn">✏️</button><button id="m${num}">Confirm</button>`);
   $(`#m${num}`).hide();
 
   $(`#b${num}`).click(function(){
@@ -55,7 +55,7 @@ form.addEventListener('submit', function(event) {
 
 localData.forEach(item => {
   $("#groceryList").append(`<p id="${item.id}"></p>`)
-  $(`#${item.id}`).html(`${item.name} <button id="b${item.id}">Edit</button>`);
+  $(`#${item.id}`).html(`${item.name} <button id="b${item.id}" class="btn">✏️</button>`);
   $(`#b${item.id}`).click(function(){
     $(this).after(`<input id="i${item.id}"><button id="m${item.id}">Confirm</button>`);
     $(this).hide();
