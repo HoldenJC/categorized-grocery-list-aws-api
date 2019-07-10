@@ -10,7 +10,7 @@ let userName = "Bob";
 let groceryList = [{"id":"0","name":"tomato","category":"produce"},{"id":"1","name":"plate","category":"produce"},{"id":"2","name":"toast","category":"produce"}];
 
 getUserAWS();
-addUserAWS(groceryList, userName);
+addUserAWS(userName, groceryList);
 
 // Back end -----------------------
 class FoodItem{
@@ -21,7 +21,7 @@ class FoodItem{
   }
 }
 
-let groceryList = [];
+// let groceryList = [];
 
 let broc = new FoodItem("brocolli", "produce", "001");
 let toma = new FoodItem("tomato", "produce", "002");

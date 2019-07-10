@@ -42,21 +42,21 @@ export function clearList(){
 }
 
 export function getUserAWS() {
-  axios.get(`https://r11ze6nefi.execute-api.us-west-2.amazonaws.com/test/groceryusers`)
+  axios.get(`https://cors-anywhere.herokuapp.com/https://r11ze6nefi.execute-api.us-west-2.amazonaws.com/test/groceryusers`)
     .then(response => {
       console.log(response)
       // $(".output").append(`<br>${response.data[x].userName}`);
     });
 }
 
-export function addUserAWS(groceryList, userName) {
+export function addUserAWS(userName, groceryList) {
       // Adds new entry to database
     try {
       const params = {
         "userName": userName,
         "groceryList": groceryList
       }
-      axios.post(`https://r11ze6nefi.execute-api.us-west-2.amazonaws.com/test/groceryusers/${userName}`, params );
+      axios.post(`https://cors-anywhere.herokuapp.com/https://r11ze6nefi.execute-api.us-west-2.amazonaws.com/test/groceryusers/${userName}`, params );
     } catch (err) {
       $(".output").append(`An error occured: ${err}`);
     }
