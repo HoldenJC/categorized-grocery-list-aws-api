@@ -4,6 +4,10 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import { CLASSNAME } from './backend-code';
 
+import { getUserAWS } from './backend-code';
+
+getUserAWS();
+
 // Back end -----------------------
 class FoodItem{
   constructor(itemName, category, id){
