@@ -19,7 +19,6 @@ body {
   padding-right: 40px !important;
 }
 
-
 .jumbotron {
   margin-top: 3%;
   background: rgba(248, 249, 250, 0.95) !important;
@@ -44,6 +43,17 @@ form, #clearList, #downloadList, #uploadList, .header, #listName {
   text-align: center;
 }
 
+#downloadDiv, #uploadDiv, #clearDiv {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#userNameDownload, #userNameUpload {
+  text-align: center;
+}
+
 #groceryLists ul {
   display: inline-block;
   position: relative;
@@ -52,7 +62,9 @@ form, #clearList, #downloadList, #uploadList, .header, #listName {
 }
 
 #listName {
+  margin-top: 15px !important;
   font-weight: 600;
+  font-size: 25px;
 }
 
 #addItem {

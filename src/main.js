@@ -18,32 +18,49 @@ function attachSubmitHandler (category) {   // Gives function to each category b
 }
 
 function attachAwsHandlers () {   // Gives function to upload and download buttons
-  $('#downloadList').click(function(){
-    $(this).hide();
-    $('#downloadDiv').html(`<input id="userNameDownload"> <button id="buttonDownload" class="btn btn-success">Download</button>`);
-    $('#buttonDownload').click(function() {
-      let userName = $('#userNameDownload').val();
-      $('#downloadStatus').append("<br>Loading list...");
-      getUsersAWS(userName).then(function(result) {
-        $('#downloadStatus').empty();
-        $('#listName').text(userName);
-        updateDisplay(getGroceryList());
-      });
+  // <<<<<<< HEAD
+  //
+  //     $('#buttonDownload').click(function() {
+  //       let userName = $('#userNameDownload').val();
+  //       $('#downloadStatus').append("<br>Loading list...");
+  //       getUsersAWS(userName).then(function(result) {
+  //         $('#downloadStatus').empty();
+  //         $('#listName').text(userName);
+  //         updateDisplay(getGroceryList());
+  //       });
+  //     });
+  //   });
+  //
+  //   $('#uploadList').click(function(){
+  //     $(this).hide();
+  //     $('#uploadDiv').html(`<input id="userNameUpload"> <button id="buttonUpload" class="btn btn-success">Upload</button>`);
+  //     $('#buttonUpload').click(function() {
+  //       let userName = $('#userNameUpload').val();
+  //       $('#downloadStatus').append("<br>Saving list...");
+  //       deleteUserAWS(userName).then(function(result){
+  //         console.log("DELETE RESULT: " + result);
+  //         return addUserAWS(userName);
+  //       }).then(function(result){
+  //         console.log("ADD RESULT: " + result);
+  //       })
+  //     });
+  // =======
+  $('#buttonDownload').click(function() {
+    let userName = $('#userNameDownload').val();
+    getUsersAWS(userName).then(function(result){
+      $('#downloadStatus').empty();
+      $('#listName').text(`${userName}'s List`);
+      updateDisplay(getGroceryList());
     });
   });
 
-  $('#uploadList').click(function(){
-    $(this).hide();
-    $('#uploadDiv').html(`<input id="userNameUpload"> <button id="buttonUpload" class="btn btn-success">Upload</button>`);
-    $('#buttonUpload').click(function() {
-      let userName = $('#userNameUpload').val();
-      $('#downloadStatus').append("<br>Saving list...");
-      deleteUserAWS(userName).then(function(result){
-        console.log("DELETE RESULT: " + result);
-        return addUserAWS(userName);
-      }).then(function(result){
-        console.log("ADD RESULT: " + result);
-      })
+  $('#buttonUpload').click(function() {
+    let userName = $('#userNameUpload').val();
+    deleteUserAWS(userName).then(function(){
+      return addUserAWS(userName);
+    }).then(function(result){
+      $('#listName').text(`${userName}'s List`);
+      console.log("ADD RESULT: " + result);
     });
   });
 }
