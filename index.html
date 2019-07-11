@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Barlow&display=swap" rel="stylesheet">
+  <title>Categorized Grocery List</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="jumbotron rounded-0 shadow">
+      <h1 class="display-4">Grocery List</h1>
+      <p class="lead">Using device local storage and AWS</p>
+    </div>
+
+    <form>
+      <input id="inputItemName" class="form-control rounded-0" type="text" placeholder="New grocery list item here">
+      <button class="btn btn-primary rounded-0" id="produce">&#127813; Produce</button>
+      <button class="btn btn-primary rounded-0" id="proteins">&#127830; Proteins</button>
+      <button class="btn btn-primary rounded-0" id="other-foods">&#127838; Other Foods</button>
+      <button class="btn btn-primary rounded-0" id="non-foods">&#128391; Non-Foods</button>
+    </form>
+
+    <div class="card rounded-0 shadow">
+      <div id="listName">Local Storage's List</div>
+      <div id="groceryLists">
+        <div class="row">
+          <div class="col-sm card rounded-0 innerCard shadow bg-warning-dark m-2">
+            <h6 id="produceListTitle">Produce</h6>
+            <ul id="produceList"></ul>
+          </div>
+          <div class="col-sm card rounded-0 innerCard shadow bg-warning-dark m-2">
+            <h6 id="proteinsListTitle">Proteins</h6>
+            <ul id="proteinsList"></ul>
+          </div>
+          <div class="col-sm card rounded-0 innerCard shadow bg-warning-dark m-2">
+            <h6 id="other-foodsListTitle">Other Foods</h6>
+            <ul id="other-foodsList"></ul>
+          </div>
+          <div class="col-sm card rounded-0 innerCard shadow bg-warning-dark m-2">
+            <h6 id="non-foodsListTitle">Non-Foods</h6>
+            <ul id="non-foodsList">Non Foods: </ul>
+          </div>
+        </div>
+      </div>
+      <hr>
+
+      <div id="decisionButtons" class="row">
+        <div class="col" id="downloadDiv">
+          <input id="userNameDownload" placeholder="Enter list to retrieve"><br><button id="buttonDownload" class="btn btn-success rounded-0">&#11015; Retrieve List</button>
+        </div>
+        <div class="col" id="clearDiv">
+          <br><button id="clearList" class="btn btn-danger rounded-0">Clear List</button>
+        </div>
+        <div class="col" id="uploadDiv">
+          <input id="userNameUpload" placeholder="Enter name for list"><br><button id="buttonUpload" class="btn btn-success rounded-0">&#11014; Save List</button>
+        </div>
+      </div>
+      <div id="statusText"></div>
+    </div>
+  </div>
+<script type="text/javascript" src="bundle.js"></script></body>
+</html>
