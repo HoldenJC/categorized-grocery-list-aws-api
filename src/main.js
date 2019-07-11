@@ -3,7 +3,7 @@ import './styles.css';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { getGroceryList, addItem, editItem, strikeItem, deleteItem, clearList, initializeBackEnd, getUsersAWS, addUserAWS, deleteUserAWS } from './backend-code';
-
+// This is a test commit, should only be visible on lastdayUI branch
 function attachSubmitHandler (category) {   // Gives function to each category button
   $('#' + category).click(function(){
     $('form').submit(function(event) {
