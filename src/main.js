@@ -3,17 +3,19 @@ import './styles.css';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { getGroceryList, addItem, editItem, strikeItem, deleteItem, clearList, initializeBackEnd, getUsersAWS, addUserAWS, deleteUserAWS } from './backend-code';
-// This is a test commit, should only be visible on lastdayUI branch
+
 function attachSubmitHandler (category) {   // Gives function to each category button
   $('#' + category).click(function(){
     $('form').submit(function(event) {
       event.preventDefault();
     });
-    // console.log(category + ", inside the method next to submit");
+
     let newItem = $('#inputItemName').val();
-    addItem(newItem, category);
-    updateDisplay(getGroceryList());
-    $('form')[0].reset();
+    if (newItem) {
+      addItem(newItem, category);
+      updateDisplay(getGroceryList());
+      $('form')[0].reset();
+    }
   });
 }
 
@@ -81,11 +83,11 @@ function updateDisplay(grocList){   // This function is called at end of every a
           updateDisplay(getGroceryList());
         });
       });
+
       $(`#delete${groceryItem.id}`).click(function(){   // Enables item delete
         deleteItem(groceryItem.id);
         updateDisplay(getGroceryList());
       });
-      //delete, .then, add item, .then, notify user if added successfuly
     }
   });
 }
