@@ -71,12 +71,13 @@ export function getUsersAWS(userName) {
           groceryList = response.data[i].groceryList;
           localStorage.setItem('items', JSON.stringify(groceryList));
           userFound = true;
+          let downloadListLength = groceryList.length - 1;
+          idCount = parseInt(groceryList[downloadListLength].id) + 1;
+          localStorage.setItem('id', JSON.stringify(idCount));
         } else {
           console.log("no list");
         }
       }
-      let downloadListLength = groceryList.length - 1;
-      idCount = parseInt(groceryList[downloadListLength].id) + 1;
       console.log(idCount);
       return userFound;
     });

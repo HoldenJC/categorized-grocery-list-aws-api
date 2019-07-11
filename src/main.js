@@ -93,6 +93,7 @@ function updateDisplay(grocList){   // This function is called at end of every a
 
 initializeBackEnd();
 updateDisplay(getGroceryList());
+console.log("main page");
 
 $(document).ready(function() {
   attachSubmitHandler("produce");
