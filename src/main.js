@@ -32,6 +32,7 @@ function attachAwsHandlers () {   // Gives function to upload and download butto
       }, 2000);
     });
   });
+  //ADDED TO FRONT END SHOULD BE ONLY THAT
 
   $('#uploadList').click(function(){
     $(this).hide();
