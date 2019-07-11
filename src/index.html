@@ -6,12 +6,9 @@
 
 <body>
   <div class="container">
-    <div class="jumbotron">
+    <div class="jumbotron shadow">
       <h1 class="display-4">Grocery List</h1>
-      <p class="lead">Using Device Local Storage</p>
-    </div>
-    <div>
-      <p id="listName"></p>
+      <p class="lead">Using device local storage and AWS</p>
     </div>
 
     <form>
@@ -22,30 +19,46 @@
       <button class="btn btn-primary" id="non-foods">&#128391; Non-Foods</button>
     </form>
 
-    <hr>
+    <div class="card">
+    <div id="listName"></div>
 
-    <div id="groceryLists">
-    <h4>Produce</h4>
-    <ul id="produceList"></ul>
-    <h4>Proteins</h4>
-    <ul id="proteinsList"></ul>
-    <h4>Other Foods</h4>
-    <ul id="other-foodsList"></ul>
-    <h4>Non-Foods</h4>
-    <ul id="non-foodsList">Non Foods: </ul>
+
+      <div id="groceryLists">
+        <div class="row">
+        <div class="col">
+          <h4>Produce</h4>
+          <ul id="produceList"></ul>
+        </div>
+        <div class="col">
+          <h4>Proteins</h4>
+          <ul id="proteinsList"></ul>
+        </div>
+        <div class="col">
+          <h4>Other Foods</h4>
+          <ul id="other-foodsList"></ul>
+        </div>
+        <div class="col">
+          <h4>Non-Foods</h4>
+          <ul id="non-foodsList">Non Foods: </ul>
+        </div>
+      </div>
     </div>
 
-    <button id="clearList" class="btn btn-danger">Clear List</button>
+
     <hr>
-    <div class="row">
+    <div id="decisionButtons" class="row">
       <div class="col" id="downloadDiv">
-        <button id="downloadList" class="btn btn-warning">Download List</button>
+        <button id="downloadList" class="btn btn-info">Download List</button>
+      </div>
+      <div class="col" id="clearDiv">
+        <button id="clearList" class="btn btn-danger">Clear List</button>
       </div>
       <div class="col" id="uploadDiv">
-        <button id="uploadList" class="btn btn-warning">Upload List</button>
+        <button id="uploadList" class="btn btn-info">Upload List</button>
       </div>
     </div>
     <div id="downloadStatus"></div>
+  </div>
   </div>
 </body>
 </html>

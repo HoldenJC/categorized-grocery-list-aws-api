@@ -24,12 +24,12 @@ function attachAwsHandlers () {   // Gives function to upload and download butto
     $('#buttonDownload').click(function() {
       let userName = $('#userNameDownload').val();
       getUsersAWS(userName);
-      $('#downloadStatus').append("<br>Loading List...");
+      $('#downloadStatus').append("<br>Loading list...");
       setTimeout(function(){
         $('#downloadStatus').empty();
         $('#listName').text(userName);
         updateDisplay(getGroceryList());
-      }, 2000);
+      }, 3000);
     });
   });
 
@@ -38,8 +38,13 @@ function attachAwsHandlers () {   // Gives function to upload and download butto
     $('#uploadDiv').html(`<input id="userNameUpload"> <button id="buttonUpload" class="btn btn-success">Upload</button>`);
     $('#buttonUpload').click(function() {
       let userName = $('#userNameUpload').val();
+      $('#downloadStatus').append("<br>Saving list...");
       deleteUserAWS(userName);
-      addUserAWS(userName);
+      setTimeout(function(){
+        addUserAWS(userName);
+        $('#downloadStatus').empty();
+        $('#listName').text(userName);
+      }, 2000);
     });
   });
 }
