@@ -18,33 +18,6 @@ function attachSubmitHandler (category) {   // Gives function to each category b
 }
 
 function attachAwsHandlers () {   // Gives function to upload and download buttons
-  // <<<<<<< HEAD
-  //
-  //     $('#buttonDownload').click(function() {
-  //       let userName = $('#userNameDownload').val();
-  //       $('#downloadStatus').append("<br>Loading list...");
-  //       getUsersAWS(userName).then(function(result) {
-  //         $('#downloadStatus').empty();
-  //         $('#listName').text(userName);
-  //         updateDisplay(getGroceryList());
-  //       });
-  //     });
-  //   });
-  //
-  //   $('#uploadList').click(function(){
-  //     $(this).hide();
-  //     $('#uploadDiv').html(`<input id="userNameUpload"> <button id="buttonUpload" class="btn btn-success">Upload</button>`);
-  //     $('#buttonUpload').click(function() {
-  //       let userName = $('#userNameUpload').val();
-  //       $('#downloadStatus').append("<br>Saving list...");
-  //       deleteUserAWS(userName).then(function(result){
-  //         console.log("DELETE RESULT: " + result);
-  //         return addUserAWS(userName);
-  //       }).then(function(result){
-  //         console.log("ADD RESULT: " + result);
-  //       })
-  //     });
-  // =======
   $('#buttonDownload').click(function() {
     let userName = $('#userNameDownload').val();
     getUsersAWS(userName).then(function(result){
@@ -77,6 +50,7 @@ function updateDisplay(grocList){   // This function is called at end of every a
   emptyDisplay();
 
   grocList.forEach(function(groceryItem){
+
     if (groceryItem.name){
       $(`#${groceryItem.category}List`).append(`<li><span id="${groceryItem.id}">${groceryItem.name}</span><span id="edit${groceryItem.id}" class="emoji"> &#128396;</span> <span id="delete${groceryItem.id}" class="emoji"> &#10060;</span></li>`);
 
@@ -98,7 +72,7 @@ function updateDisplay(grocList){   // This function is called at end of every a
           updateDisplay(getGroceryList());
         });
       });
-
+      debugger;
       $(`#delete${groceryItem.id}`).click(function(){   // Enables item delete
         deleteItem(groceryItem.id);
         updateDisplay(getGroceryList());

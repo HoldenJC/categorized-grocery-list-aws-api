@@ -15,6 +15,16 @@ export function getGroceryList(){
   return groceryList;
 }
 
+function getItemById(id, ra){
+  for(let i = 0; i < ra.length; i++){
+    if (ra[i].id === id){
+      return ra[i];
+    } else {
+      console.log("RA DID NOT HAVE ELEMTN WITH THAT ID");
+    }
+  }
+}
+
 export function addItem(name, category){
   groceryList.push({name:`${name}`,id:`${idCount}`,category:`${category}`,strikethrough:false});
   localStorage.setItem('items', JSON.stringify(groceryList));
@@ -22,24 +32,24 @@ export function addItem(name, category){
 }
 
 export function editItem(name, id, category){
-  groceryList[id].name = name;
+  getItemById(id, groceryList).name = name;
   if (category){
-    groceryList[id].category = category;
+    getItemById(id, groceryList).category = category;
   }
   localStorage.setItem('items', JSON.stringify(groceryList));
 }
 
 export function strikeItem(id){
-  if(groceryList[id].strikethrough === false){
-    groceryList[id].strikethrough = true;
+  if(getItemById(id, groceryList).strikethrough === false){
+    getItemById(id, groceryList).strikethrough = true;
   } else {
-    groceryList[id].strikethrough = false;
+    getItemById(id, groceryList).strikethrough = false;
   }
   localStorage.setItem('items', JSON.stringify(groceryList));
 }
 
 export function deleteItem(id){
-  groceryList[id].name = '';
+  groceryList.splice(groceryList.indexOf(getItemById(id, groceryList)), 1);
   localStorage.setItem('items', JSON.stringify(groceryList));
 }
 
@@ -57,7 +67,6 @@ export function getUsersAWS(userName) {
           localStorage.clear();
           groceryList = response.data[i].groceryList;
           localStorage.setItem('items', JSON.stringify(groceryList));
-          // return groceryList;
         }
       }
       let downloadListLength = groceryList.length - 1;
