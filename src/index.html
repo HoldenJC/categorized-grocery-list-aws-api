@@ -10,6 +10,9 @@
       <h1 class="display-4">Grocery List</h1>
       <p class="lead">Using Device Local Storage</p>
     </div>
+    <div>
+      <p id="listName"></p>
+    </div>
 
     <form>
       <input id="inputItemName" class="form-control" type="text" placeholder="new grocery list item here">
@@ -35,13 +38,14 @@
     <button id="clearList" class="btn btn-danger">Clear List</button>
     <hr>
     <div class="row">
-      <div class="col">
-        <button id="downloadList" class="btn btn-warning">Download</button>
+      <div class="col" id="downloadDiv">
+        <button id="downloadList" class="btn btn-warning">Download List</button>
       </div>
-      <div class="col">
-        <button id="uploadList" class="btn btn-warning">Upload</button>
+      <div class="col" id="uploadDiv">
+        <button id="uploadList" class="btn btn-warning">Upload List</button>
       </div>
     </div>
+    <div id="downloadStatus"></div>
   </div>
 </body>
 </html>

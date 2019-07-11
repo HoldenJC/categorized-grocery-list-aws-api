@@ -17,6 +17,33 @@ function attachSubmitHandler (category) {   // Gives function to each category b
   });
 }
 
+function attachAwsHandlers () {   // Gives function to upload and download buttons
+  $('#downloadList').click(function(){
+    $(this).hide();
+    $('#downloadDiv').html(`<input id="userNameDownload"> <button id="buttonDownload" class="btn btn-success">Download</button>`);
+    $('#buttonDownload').click(function() {
+      let userName = $('#userNameDownload').val();
+      getUsersAWS(userName);
+      $('#downloadStatus').append("<br>Loading List...");
+      setTimeout(function(){
+        $('#downloadStatus').empty();
+        $('#listName').text(userName);
+        updateDisplay(getGroceryList());
+      }, 2000);
+    });
+  });
+
+  $('#uploadList').click(function(){
+    $(this).hide();
+    $('#uploadDiv').html(`<input id="userNameUpload"> <button id="buttonUpload" class="btn btn-success">Upload</button>`);
+    $('#buttonUpload').click(function() {
+      let userName = $('#userNameUpload').val();
+      deleteUserAWS(userName);
+      addUserAWS(userName);
+    });
+  });
+}
+
 function emptyDisplay() {
   $("#produceList").empty();
   $("#proteinsList").empty();
@@ -71,4 +98,6 @@ $(document).ready(function() {
     clearList();
     updateDisplay(getGroceryList());
   });
+
+  attachAwsHandlers();
 });
