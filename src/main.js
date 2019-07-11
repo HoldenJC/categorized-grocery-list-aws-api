@@ -9,7 +9,7 @@ function attachSubmitHandler (category) {   // Gives function to each category b
     $('form').submit(function(event) {
       event.preventDefault();
     });
-
+    // console.log(category + ", inside the method next to submit");
     let newItem = $('#inputItemName').val();
     addItem(newItem, category);
     updateDisplay(getGroceryList());
@@ -52,7 +52,7 @@ function updateDisplay(grocList){   // This function is called at end of every a
   grocList.forEach(function(groceryItem){
 
     if (groceryItem.name){
-      $(`#${groceryItem.category}List`).append(`<li><span id="${groceryItem.id}">${groceryItem.name}</span><span id="edit${groceryItem.id}" class="emoji"> &#128396;</span> <span id="delete${groceryItem.id}" class="emoji"> &#10060;</span></li>`);
+      $(`#${groceryItem.category}List`).prepend(`<li><span id="${groceryItem.id}">${groceryItem.name}</span><span id="edit${groceryItem.id}" class="emoji"> &#128396;</span> <span id="delete${groceryItem.id}" class="emoji"> &#10060;</span></li>`);
 
       if (groceryItem.strikethrough){
         $(`#${groceryItem.id}`).addClass("crossed");
@@ -72,7 +72,6 @@ function updateDisplay(grocList){   // This function is called at end of every a
           updateDisplay(getGroceryList());
         });
       });
-      debugger;
       $(`#delete${groceryItem.id}`).click(function(){   // Enables item delete
         deleteItem(groceryItem.id);
         updateDisplay(getGroceryList());
@@ -99,5 +98,5 @@ $(document).ready(function() {
   attachAwsHandlers();
 });
 
-//rename something with nothing in text, doesn't let you delete after that
-//renaming is broken, added to produce
+//subtle annyong thing: hitting enter in input calls produce FOR NOR REASON
+//if we wanted to: stop the auto submit on enter, call the 13 key on down to do the system with current cateogry

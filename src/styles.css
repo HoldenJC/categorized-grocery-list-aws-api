@@ -55,7 +55,7 @@ form, #clearList, #downloadList, #uploadList, .header, #listName {
   margin-right: auto;
 }
 
-#userNameDownload, #userNameUpload {
+#userNameDownload, #userNameUpload, #inputItemName {
   text-align: center;
 }
 
@@ -63,6 +63,7 @@ form, #clearList, #downloadList, #uploadList, .header, #listName {
   display: inline-block;
   position: relative;
   text-align: left;
+  list-style: none;
 }
 
 #listName {

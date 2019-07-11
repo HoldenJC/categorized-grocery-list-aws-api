@@ -12,7 +12,7 @@
     </div>
 
     <form>
-      <input id="inputItemName" class="form-control" type="text" placeholder="new grocery list item here">
+      <input id="inputItemName" class="form-control" type="text" placeholder="New Grocery Item">
       <button class="btn btn-primary" id="produce">&#127813; Produce</button>
       <button class="btn btn-primary" id="proteins">&#127830; Proteins</button>
       <button class="btn btn-primary" id="other-foods">&#127838; Other Foods</button>
@@ -21,40 +21,36 @@
 
     <div class="card shadow">
     <div id="listName"></div>
-
-
       <div id="groceryLists">
         <div class="row">
-        <div class="col">
-          <h4>Produce</h4>
+        <div class="col-sm">
+          <h6 id="produceListTitle">Produce</h6>
           <ul id="produceList"></ul>
         </div>
-        <div class="col">
-          <h4>Proteins</h4>
+        <div class="col-sm">
+          <h6 id="proteinsListTitle">Proteins</h6>
           <ul id="proteinsList"></ul>
         </div>
-        <div class="col">
-          <h4>Other Foods</h4>
+        <div class="col-sm">
+          <h6 id="other-foodsListTitle">Other Foods</h6>
           <ul id="other-foodsList"></ul>
         </div>
-        <div class="col">
-          <h4>Non-Foods</h4>
+        <div class="col-sm">
+          <h6 id="non-foodsListTitle">Non-Foods</h6>
           <ul id="non-foodsList">Non Foods: </ul>
         </div>
       </div>
     </div>
-
-
     <hr>
-    <div id="decisionButtons" class="row">
-      <div class="col" id="downloadDiv">
-        <input id="userNameDownload" placeholder="Enter list to retrieve"><br><button id="buttonDownload" class="btn btn-success">Retrieve List</button>
+    <div class="row" id="clearDiv">
+      <button id="clearList" class="btn btn-danger">Clear List</button>
+    </div>
+    <div class="row">
+      <div class="col-sm" id="downloadDiv">
+        <input id="userNameDownload" placeholder="List Name"> <button id="buttonDownload" class="btn btn-success">&#11015; Download</button>
       </div>
-      <div class="col" id="clearDiv">
-        <button id="clearList" class="btn btn-danger">Clear List</button>
-      </div>
-      <div class="col" id="uploadDiv">
-        <input id="userNameUpload" placeholder="Enter name for list"><br><button id="buttonUpload" class="btn btn-success">Save List</button>
+      <div class="col-sm" id="uploadDiv">
+        <input id="userNameUpload" placeholder="List Name"> <button id="buttonUpload" class="btn btn-success">&#11014; Upload</button>
       </div>
     </div>
   </div>
