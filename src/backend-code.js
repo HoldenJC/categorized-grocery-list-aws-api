@@ -60,6 +60,9 @@ export function getUsersAWS(userName) {
           // return groceryList;
         }
       }
+      let downloadListLength = groceryList.length - 1;
+      idCount = parseInt(groceryList[downloadListLength].id) + 1;
+      console.log(idCount);
     });
 }
 
