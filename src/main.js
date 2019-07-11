@@ -20,20 +20,28 @@ function attachSubmitHandler (category) {   // Gives function to each category b
 function attachAwsHandlers () {   // Gives function to upload and download buttons
   $('#buttonDownload').click(function() {
     let userName = $('#userNameDownload').val();
+    $('#userNameDownload').val('');
+    document.getElementById("userNameDownload").placeholder = `Getting list: ${userName}...`;
     getUsersAWS(userName).then(function(result){
-      $('#downloadStatus').empty();
-      $('#listName').text(`${userName}'s List`);
-      updateDisplay(getGroceryList());
+      document.getElementById("userNameDownload").placeholder = `Enter list to retrieve`;
+      if(result === true){
+        $('#listName').text(`${userName}'s List`);
+        updateDisplay(getGroceryList());
+      } else {
+        $("#statusText").html(`List "<strong>${userName}</strong>" does not exist. Please enter in a valid list.`);
+      }
     });
   });
 
   $('#buttonUpload').click(function() {
     let userName = $('#userNameUpload').val();
+    $('#userNameUpload').val('');
+    document.getElementById("userNameUpload").placeholder = `Saving list: ${userName}...`;
     deleteUserAWS(userName).then(function(){
-      return addUserAWS(userName);
+      return addUserAWS(userName)
     }).then(function(result){
+      document.getElementById("userNameUpload").placeholder = `Enter name for list`;
       $('#listName').text(`${userName}'s List`);
-      console.log("ADD RESULT: " + result);
     });
   });
 }
@@ -43,6 +51,7 @@ function emptyDisplay() {
   $("#proteinsList").empty();
   $("#other-foodsList").empty();
   $("#non-foodsList").empty();
+  $("#statusText").empty();
 }
 
 function updateDisplay(grocList){   // This function is called at end of every action
@@ -83,6 +92,7 @@ function updateDisplay(grocList){   // This function is called at end of every a
 
 initializeBackEnd();
 updateDisplay(getGroceryList());
+console.log("main page");
 
 $(document).ready(function() {
   attachSubmitHandler("produce");

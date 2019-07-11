@@ -5,7 +5,7 @@
 </head>
 
 <body>
-  <div class="container">
+  <div class="container-fluid">
     <div class="jumbotron shadow">
       <h1 class="display-4">Grocery List</h1>
       <p class="lead">Using device local storage and AWS</p>
@@ -20,7 +20,7 @@
     </form>
 
     <div class="card shadow">
-    <div id="listName"></div>
+    <div id="listName">Local Storage's List</div>
       <div id="groceryLists">
         <div class="row">
         <div class="col-sm">
@@ -53,6 +53,7 @@
         <input id="userNameUpload" placeholder="List Name"> <button id="buttonUpload" class="btn btn-success">&#11014; Upload</button>
       </div>
     </div>
+    <div id="statusText"></div>
   </div>
   </div>
 </body>
