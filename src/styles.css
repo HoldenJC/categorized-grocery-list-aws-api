@@ -4,7 +4,6 @@ button {
 }
 
 body {
-
   background-image: url("https://starkart.com/uploads/general/204/istock-529425536.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -18,7 +17,6 @@ body {
   background: rgba(248, 249, 250, 0.95) !important;
   padding-right: 40px !important;
 }
-
 
 .jumbotron {
   margin-top: 3%;
@@ -35,6 +33,12 @@ form, #clearList, #downloadList, #uploadList, .header, #listName {
   margin-right: auto;
 }
 
+#inputItemName {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #decisionButtons {
   margin-bottom: 10px !important;
 }
@@ -44,15 +48,27 @@ form, #clearList, #downloadList, #uploadList, .header, #listName {
   text-align: center;
 }
 
+#downloadDiv, #uploadDiv, #clearDiv {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#userNameDownload, #userNameUpload {
+  text-align: center;
+}
+
 #groceryLists ul {
   display: inline-block;
   position: relative;
   text-align: left;
-  /* right: 15px; */
 }
 
 #listName {
+  margin-top: 15px !important;
   font-weight: 600;
+  font-size: 25px;
 }
 
 #addItem {

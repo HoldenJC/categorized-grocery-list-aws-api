@@ -19,7 +19,7 @@
       <button class="btn btn-primary" id="non-foods">&#128391; Non-Foods</button>
     </form>
 
-    <div class="card">
+    <div class="card shadow">
     <div id="listName"></div>
 
 
@@ -48,16 +48,15 @@
     <hr>
     <div id="decisionButtons" class="row">
       <div class="col" id="downloadDiv">
-        <button id="downloadList" class="btn btn-info">Download List</button>
+        <input id="userNameDownload" placeholder="Enter list to retrieve"><br><button id="buttonDownload" class="btn btn-success">Retrieve List</button>
       </div>
       <div class="col" id="clearDiv">
         <button id="clearList" class="btn btn-danger">Clear List</button>
       </div>
       <div class="col" id="uploadDiv">
-        <button id="uploadList" class="btn btn-info">Upload List</button>
+        <input id="userNameUpload" placeholder="Enter name for list"><br><button id="buttonUpload" class="btn btn-success">Save List</button>
       </div>
     </div>
-    <div id="downloadStatus"></div>
   </div>
   </div>
 </body>
