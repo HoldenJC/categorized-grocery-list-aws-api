@@ -11,11 +11,18 @@ body {
   min-height: 100%;
   background-position: center;
   overflow: hidden;
+  font-family: 'Barlow', sans-serif !important;
 }
 
 .card {
   background: rgba(248, 249, 250, 0.95) !important;
   padding: 15px !important;
+}
+
+.innerCard {
+  background: rgba(84, 110, 122, 0.95) !important;
+  color: white;
+  padding: 5px !important;
 }
 
 .jumbotron {
@@ -24,6 +31,7 @@ body {
   text-align: center;
   padding-top: 15px !important;
   padding-bottom: 15px !important;
+  font-weight: 600;
 }
 
 form, #clearList, #downloadList, #uploadList, .header, #listName {
