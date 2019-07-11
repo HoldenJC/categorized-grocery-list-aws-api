@@ -5,7 +5,7 @@
 </head>
 
 <body>
-  <div class="container">
+  <div class="container-fluid">
     <div class="jumbotron shadow">
       <h1 class="display-4">Grocery List</h1>
       <p class="lead">Using device local storage and AWS</p>
@@ -20,7 +20,7 @@
     </form>
 
     <div class="card shadow">
-    <div id="listName"></div>
+    <div id="listName">Local Storage's List</div>
 
 
       <div id="groceryLists">
@@ -51,12 +51,13 @@
         <input id="userNameDownload" placeholder="Enter list to retrieve"><br><button id="buttonDownload" class="btn btn-success">Retrieve List</button>
       </div>
       <div class="col" id="clearDiv">
-        <button id="clearList" class="btn btn-danger">Clear List</button>
+        <br><button id="clearList" class="btn btn-danger">Clear List</button>
       </div>
       <div class="col" id="uploadDiv">
         <input id="userNameUpload" placeholder="Enter name for list"><br><button id="buttonUpload" class="btn btn-success">Save List</button>
       </div>
     </div>
+    <div id="statusText"></div>
   </div>
   </div>
 </body>

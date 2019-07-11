@@ -12,6 +12,7 @@ export function initializeBackEnd(){
 }
 
 export function getGroceryList(){
+  console.log(idCount);
   return groceryList;
 }
 
@@ -29,6 +30,7 @@ export function addItem(name, category){
   groceryList.push({name:`${name}`,id:`${idCount}`,category:`${category}`,strikethrough:false});
   localStorage.setItem('items', JSON.stringify(groceryList));
   idCount++;
+  localStorage.setItem('id', JSON.stringify(idCount));
 }
 
 export function editItem(name, id, category){
@@ -62,16 +64,21 @@ export function getUsersAWS(userName) {
   return axios.get(`https://cors-anywhere.herokuapp.com/https://r11ze6nefi.execute-api.us-west-2.amazonaws.com/test/groceryusers`)
     .then(response => {
       console.log(response);
+      let userFound = false;
       for(let i = 0; i < response.data.length; i++){
         if(response.data[i].userName === userName){
           localStorage.clear();
           groceryList = response.data[i].groceryList;
           localStorage.setItem('items', JSON.stringify(groceryList));
+          userFound = true;
+        } else {
+          console.log("no list");
         }
       }
       let downloadListLength = groceryList.length - 1;
       idCount = parseInt(groceryList[downloadListLength].id) + 1;
       console.log(idCount);
+      return userFound;
     });
 }
 
@@ -81,7 +88,9 @@ export function addUserAWS(userName) {
         "userName": userName,
         "groceryList": groceryList
       }
-       return axios.post(`https://cors-anywhere.herokuapp.com/https://r11ze6nefi.execute-api.us-west-2.amazonaws.com/test/groceryusers/${userName}`, params );
+      let downloadListLength = groceryList.length - 1;
+      idCount = parseInt(groceryList[downloadListLength].id) + 1;
+      return axios.post(`https://cors-anywhere.herokuapp.com/https://r11ze6nefi.execute-api.us-west-2.amazonaws.com/test/groceryusers/${userName}`, params );
     } catch (err) {
       $(".output").append(`An error occured: ${err}`);
     }

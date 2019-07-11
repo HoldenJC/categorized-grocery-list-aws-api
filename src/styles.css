@@ -15,7 +15,7 @@ body {
 
 .card {
   background: rgba(248, 249, 250, 0.95) !important;
-  padding-right: 40px !important;
+  padding: 15px !important;
 }
 
 .jumbotron {
@@ -55,6 +55,14 @@ form, #clearList, #downloadList, #uploadList, .header, #listName {
   margin-right: auto;
 }
 
+#statusText {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  color: red;
+}
+
 #userNameDownload, #userNameUpload {
   text-align: center;
 }
@@ -66,7 +74,6 @@ form, #clearList, #downloadList, #uploadList, .header, #listName {
 }
 
 #listName {
-  margin-top: 15px !important;
   font-weight: 600;
   font-size: 25px;
 }
@@ -83,7 +90,7 @@ hr {
   margin-left: auto !important;
   margin-right: auto !important;
   margin-bottom: 8px !important;
-  width: 85%;
+  width: 95%;
 }
 
 .crossed{
