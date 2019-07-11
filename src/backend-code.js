@@ -49,7 +49,7 @@ export function clearList(){
 }
 
 export function getUsersAWS(userName) {
-  axios.get(`https://cors-anywhere.herokuapp.com/https://r11ze6nefi.execute-api.us-west-2.amazonaws.com/test/groceryusers`)
+  return axios.get(`https://cors-anywhere.herokuapp.com/https://r11ze6nefi.execute-api.us-west-2.amazonaws.com/test/groceryusers`)
     .then(response => {
       console.log(response);
       for(let i = 0; i < response.data.length; i++){
@@ -69,7 +69,7 @@ export function addUserAWS(userName) {
         "userName": userName,
         "groceryList": groceryList
       }
-      axios.post(`https://cors-anywhere.herokuapp.com/https://r11ze6nefi.execute-api.us-west-2.amazonaws.com/test/groceryusers/${userName}`, params );
+       return axios.post(`https://cors-anywhere.herokuapp.com/https://r11ze6nefi.execute-api.us-west-2.amazonaws.com/test/groceryusers/${userName}`, params );
     } catch (err) {
       $(".output").append(`An error occured: ${err}`);
     }
@@ -80,7 +80,7 @@ export function deleteUserAWS(userName) {
     const params = {
       "userName": userName
     }
-    axios.delete(`https://cors-anywhere.herokuapp.com/https://r11ze6nefi.execute-api.us-west-2.amazonaws.com/test/groceryusers/${userName}`, params );
+     return axios.delete(`https://cors-anywhere.herokuapp.com/https://r11ze6nefi.execute-api.us-west-2.amazonaws.com/test/groceryusers/${userName}`, params );
   } catch (err) {
     $(".output").append(`An error occured: ${err}`);
   }

@@ -23,13 +23,12 @@ function attachAwsHandlers () {   // Gives function to upload and download butto
     $('#downloadDiv').html(`<input id="userNameDownload"> <button id="buttonDownload" class="btn btn-success">Download</button>`);
     $('#buttonDownload').click(function() {
       let userName = $('#userNameDownload').val();
-      getUsersAWS(userName);
       $('#downloadStatus').append("<br>Loading list...");
-      setTimeout(function(){
+      getUsersAWS(userName).then(function(result) {
         $('#downloadStatus').empty();
         $('#listName').text(userName);
         updateDisplay(getGroceryList());
-      }, 3000);
+      });
     });
   });
 
@@ -39,12 +38,12 @@ function attachAwsHandlers () {   // Gives function to upload and download butto
     $('#buttonUpload').click(function() {
       let userName = $('#userNameUpload').val();
       $('#downloadStatus').append("<br>Saving list...");
-      deleteUserAWS(userName);
-      setTimeout(function(){
-        addUserAWS(userName);
-        $('#downloadStatus').empty();
-        $('#listName').text(userName);
-      }, 2000);
+      deleteUserAWS(userName).then(function(result){
+        console.log("DELETE RESULT: " + result);
+        return addUserAWS(userName);
+      }).then(function(result){
+        console.log("ADD RESULT: " + result);
+      })
     });
   });
 }
@@ -57,6 +56,7 @@ function emptyDisplay() {
 }
 
 function updateDisplay(grocList){   // This function is called at end of every action
+  console.log(getGroceryList());
   emptyDisplay();
 
   grocList.forEach(function(groceryItem){
@@ -86,6 +86,7 @@ function updateDisplay(grocList){   // This function is called at end of every a
         deleteItem(groceryItem.id);
         updateDisplay(getGroceryList());
       });
+      //delete, .then, add item, .then, notify user if added successfuly
     }
   });
 }
@@ -106,3 +107,6 @@ $(document).ready(function() {
 
   attachAwsHandlers();
 });
+
+//rename something with nothing in text, doesn't let you delete after that
+//renaming is broken, added to produce
